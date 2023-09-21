@@ -6,12 +6,14 @@ import TodoList from '@/components/List';
 
 import styles from '@/styles/Form.module.css';
 
+const DO_YOU_HAVE_THE_REQUIRED_API_AT_api_SLASH_todos = false;
+
 export default function Form() {
 
   const [newItem, setNewItem] = useState("");
   const [todoItems, setTodoItems] = useState([]);
 
-  const [inputDisabled, setInputDisabled] = useState(true);
+  const [inputDisabled, setInputDisabled] = useState(DO_YOU_HAVE_THE_REQUIRED_API_AT_api_SLASH_todos);
 
   /* create a session key if not exists on app start */
   useEffect(() => {
