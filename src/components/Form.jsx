@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import { uuidv4 } from '@/scripts/script';
 
 import Button from '@/components/Button';
 import TodoList from '@/components/List';
@@ -18,7 +19,7 @@ export default function Form() {
   /* create a session key if not exists on app start */
   useEffect(() => {
     if (!localStorage.getItem('user-uuid'))
-      localStorage.setItem('user-uuid', crypto.randomUUID());
+      localStorage.setItem('user-uuid', uuidv4());
     console.log(`user uuid is ${localStorage.getItem('user-uuid')}`);
   }, []);
 
@@ -68,7 +69,7 @@ export default function Form() {
     newItem &&  setTodoItems(currentTodos => {
       const result = [
         ...currentTodos, {
-          id: crypto.randomUUID(),
+          id: uuidv4(),
           title: newItem,
           complete: false,
         }
